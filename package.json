@@ -1,0 +1,11 @@
+{
+  "name": "jsp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "fetch": "^1.1.0",
+    "lodash": "^4.17.5",
+    "node-fetch": "^2.0.0"
+  }
+}
