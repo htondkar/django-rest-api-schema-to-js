@@ -97,10 +97,10 @@ function enhanceWithAxios(apiMethodObject, path, targetKeys) {
 
     const wholeMethodToPrint = `
 /*
-  ${name}:
+  ${path}:
   ${restrictSentenceLength(description || 'No Description', 15)}
   ---------- Fields -----------
-  ${params.join('\n')}
+  ${params.join('\n  ')}
 */
 const ${name} = ${fn}
 `
@@ -126,10 +126,10 @@ const ${name} = ${fn}
 
     const wholeMethodToPrint = `
 /*
-  ${name}:
+  ${path}:
   ${restrictSentenceLength(description || 'No Description', 15)}
   ---------- Fields -----------
-  ${params.join('\n')}
+  ${params.join('\n  ')}
 */
 const ${name} = ${fn}
     `
@@ -142,8 +142,10 @@ function getParamsAsComments(fields) {
   return fields
     ? fields.map(
         field =>
-          `${field.name}: ${field.schema._type} in ${field.location} ${
-            field.required ? '*required' : ''
+          `${field.name}: ${field.schema._type} in ${field.location === 'form' ? 'body' : 'url query params'} ${
+            field.required ? '[*required]' : ''
+          } ${
+            field.schema._type === 'enum' ? `| enum: [${field.schema.enum}]` : ''
           }`
       )
     : []
@@ -208,13 +210,16 @@ function extractor(apiSchema) {
 }
 
 function restrictSentenceLength(text, maxLength) {
-  return text.split(' ').map((word, index) => {
-    if (index + 1 % maxLength === 0) {
-      return word + '\n'
-    } else {
-      return word
-    }
-  })
+  return text
+    .split(' ')
+    .map((word, index) => {
+      if (index + 1 % maxLength === 0) {
+        return word + '\n'
+      } else {
+        return word
+      }
+    })
+    .join(' ')
 }
 
 exports.default = extractor
