@@ -1,4 +1,3 @@
-
 /*
   -auth-change-email-create:
   Use this endpoint to change user email
@@ -6,7 +5,8 @@
   new_email: string in body [*required]
   password: string in body [*required]
 */
-const createEmailChangeAuth = (body) => axios.post(`${BASE_URL}/auth/change-email/`, body, getConfig())
+const createEmailChangeAuth = body =>
+  axios.post(`${BASE_URL}/auth/change-email/`, body, getConfig())
 
 /*
   -auth-change-password-create:
@@ -15,7 +15,8 @@ const createEmailChangeAuth = (body) => axios.post(`${BASE_URL}/auth/change-emai
   current_password: string in body [*required]
   new_password: string in body [*required]
 */
-const createPasswordChangeAuth = (body) => axios.post(`${BASE_URL}/auth/change-password/`, body, getConfig())
+const createPasswordChangeAuth = body =>
+  axios.post(`${BASE_URL}/auth/change-password/`, body, getConfig())
 
 /*
   -auth-current-user-list:
@@ -23,7 +24,8 @@ const createPasswordChangeAuth = (body) => axios.post(`${BASE_URL}/auth/change-p
   ---------- Fields -----------
   page: integer in url query params
 */
-const getAuthCurrent = () => axios.get(`${BASE_URL}/auth/current-user/`, getConfig())
+const getAuthCurrent = () =>
+  axios.get(`${BASE_URL}/auth/current-user/`, getConfig())
 
 /*
   -auth-login-create:
@@ -32,7 +34,8 @@ const getAuthCurrent = () => axios.get(`${BASE_URL}/auth/current-user/`, getConf
   username: string in body [*required]
   password: string in body [*required]
 */
-const createLoginAuth = (body) => axios.post(`${BASE_URL}/auth/login/`, body, getConfig())
+const createLoginAuth = body =>
+  axios.post(`${BASE_URL}/auth/login/`, body, getConfig())
 
 /*
   -auth-login-as-create:
@@ -40,7 +43,8 @@ const createLoginAuth = (body) => axios.post(`${BASE_URL}/auth/login/`, body, ge
   ---------- Fields -----------
   username: string in body [*required]
 */
-const createAsLoginAuth = (body) => axios.post(`${BASE_URL}/auth/login-as/`, body, getConfig())
+const createAsLoginAuth = body =>
+  axios.post(`${BASE_URL}/auth/login-as/`, body, getConfig())
 
 /*
   -cms-contacts-list:
@@ -69,7 +73,8 @@ const getCmsPages = () => axios.get(`${BASE_URL}/cms/pages/`, getConfig())
   required: boolean in body
   unique: boolean in body
 */
-const createFieldFields = (body) => axios.post(`${BASE_URL}/fields/field/`, body, getConfig())
+const createFieldFields = body =>
+  axios.post(`${BASE_URL}/fields/field/`, body, getConfig())
 
 /*
   -fields-field-read:
@@ -77,7 +82,8 @@ const createFieldFields = (body) => axios.post(`${BASE_URL}/fields/field/`, body
   ---------- Fields -----------
   slug: string in url query params [*required]
 */
-const getFieldsField = (slug) => axios.get(`${BASE_URL}/fields/field/${slug}/`, getConfig())
+const getFieldsField = slug =>
+  axios.get(`${BASE_URL}/fields/field/${slug}/`, getConfig())
 
 /*
   -fields-field-update:
@@ -90,7 +96,8 @@ const getFieldsField = (slug) => axios.get(`${BASE_URL}/fields/field/${slug}/`, 
   required: boolean in body
   unique: boolean in body
 */
-const updateFieldFields = (slug, body) => axios.put(`${BASE_URL}/fields/field/${slug}/`, body, getConfig())
+const updateFieldFields = (slug, body) =>
+  axios.put(`${BASE_URL}/fields/field/${slug}/`, body, getConfig())
 
 /*
   -fields-field-partial_update:
@@ -103,7 +110,8 @@ const updateFieldFields = (slug, body) => axios.put(`${BASE_URL}/fields/field/${
   required: boolean in body
   unique: boolean in body
 */
-const partialUpdateFieldFields = (slug, body) => axios.patch(`${BASE_URL}/fields/field/${slug}/`, body, getConfig())
+const partialUpdateFieldFields = (slug, body) =>
+  axios.patch(`${BASE_URL}/fields/field/${slug}/`, body, getConfig())
 
 /*
   -fields-field-delete:
@@ -111,7 +119,8 @@ const partialUpdateFieldFields = (slug, body) => axios.patch(`${BASE_URL}/fields
   ---------- Fields -----------
   slug: string in url query params [*required]
 */
-const getFieldsField = (slug) => axios.delete(`${BASE_URL}/fields/field/${slug}/`, getConfig())
+const getFieldsField = slug =>
+  axios.delete(`${BASE_URL}/fields/field/${slug}/`, getConfig())
 
 /*
   -inventories-add-create:
@@ -122,7 +131,8 @@ const getFieldsField = (slug) => axios.delete(`${BASE_URL}/fields/field/${slug}/
   address: string in body
   description: string in body
 */
-const createAddInventories = (body) => axios.post(`${BASE_URL}/inventories/add/`, body, getConfig())
+const createAddInventories = body =>
+  axios.post(`${BASE_URL}/inventories/add/`, body, getConfig())
 
 /*
   -inventories-inventory-read:
@@ -130,7 +140,8 @@ const createAddInventories = (body) => axios.post(`${BASE_URL}/inventories/add/`
   ---------- Fields -----------
   slug: string in url query params [*required]
 */
-const getInventoriesInventory = (slug) => axios.get(`${BASE_URL}/inventories/inventory/${slug}/`, getConfig())
+const getInventoriesInventory = slug =>
+  axios.get(`${BASE_URL}/inventories/inventory/${slug}/`, getConfig())
 
 /*
   -inventories-list-list:
@@ -138,7 +149,8 @@ const getInventoriesInventory = (slug) => axios.get(`${BASE_URL}/inventories/inv
   ---------- Fields -----------
   page: integer in url query params
 */
-const getInventoriesList = () => axios.get(`${BASE_URL}/inventories/list/`, getConfig())
+const getInventoriesList = () =>
+  axios.get(`${BASE_URL}/inventories/list/`, getConfig())
 
 /*
   -panel-accesses-list:
@@ -146,7 +158,8 @@ const getInventoriesList = () => axios.get(`${BASE_URL}/inventories/list/`, getC
   ---------- Fields -----------
   page: integer in url query params
 */
-const getPanelAccesses = () => axios.get(`${BASE_URL}/panel/accesses/`, getConfig())
+const getPanelAccesses = () =>
+  axios.get(`${BASE_URL}/panel/accesses/`, getConfig())
 
 /*
   -payment-payment-methods-list:
@@ -154,7 +167,8 @@ const getPanelAccesses = () => axios.get(`${BASE_URL}/panel/accesses/`, getConfi
   ---------- Fields -----------
   page: integer in url query params
 */
-const getPaymentPayment = () => axios.get(`${BASE_URL}/payment/payment-methods/`, getConfig())
+const getPaymentPayment = () =>
+  axios.get(`${BASE_URL}/payment/payment-methods/`, getConfig())
 
 /*
   -profiles-guest-create:
@@ -162,7 +176,8 @@ const getPaymentPayment = () => axios.get(`${BASE_URL}/payment/payment-methods/`
   ---------- Fields -----------
   guest: boolean in body
 */
-const createGuestProfiles = (body) => axios.post(`${BASE_URL}/profiles/guest/`, body, getConfig())
+const createGuestProfiles = body =>
+  axios.post(`${BASE_URL}/profiles/guest/`, body, getConfig())
 
 /*
   -profiles-merchant-create:
@@ -174,7 +189,8 @@ const createGuestProfiles = (body) => axios.post(`${BASE_URL}/profiles/guest/`, 
   email: string in body
   phone_number: string in body [*required]
 */
-const createMerchantProfiles = (body) => axios.post(`${BASE_URL}/profiles/merchant/`, body, getConfig())
+const createMerchantProfiles = body =>
+  axios.post(`${BASE_URL}/profiles/merchant/`, body, getConfig())
 
 /*
   -profiles-merchant-read:
@@ -182,7 +198,8 @@ const createMerchantProfiles = (body) => axios.post(`${BASE_URL}/profiles/mercha
   ---------- Fields -----------
   id: integer in url query params [*required]
 */
-const getProfilesMerchant = (id) => axios.get(`${BASE_URL}/profiles/merchant/${id}/`, getConfig())
+const getProfilesMerchant = id =>
+  axios.get(`${BASE_URL}/profiles/merchant/${id}/`, getConfig())
 
 /*
   -profiles-profile-create:
@@ -194,7 +211,8 @@ const getProfilesMerchant = (id) => axios.get(`${BASE_URL}/profiles/merchant/${i
   phone_number: string in body [*required]
   guest: boolean in body
 */
-const createProfileProfiles = (body) => axios.post(`${BASE_URL}/profiles/profile/`, body, getConfig())
+const createProfileProfiles = body =>
+  axios.post(`${BASE_URL}/profiles/profile/`, body, getConfig())
 
 /*
   -profiles-profile-read:
@@ -202,7 +220,8 @@ const createProfileProfiles = (body) => axios.post(`${BASE_URL}/profiles/profile
   ---------- Fields -----------
   id: integer in url query params [*required]
 */
-const getProfilesProfile = (id) => axios.get(`${BASE_URL}/profiles/profile/${id}/`, getConfig())
+const getProfilesProfile = id =>
+  axios.get(`${BASE_URL}/profiles/profile/${id}/`, getConfig())
 
 /*
   -shelves-product-read:
@@ -210,7 +229,8 @@ const getProfilesProfile = (id) => axios.get(`${BASE_URL}/profiles/profile/${id}
   ---------- Fields -----------
   product_slug: string in url query params [*required]
 */
-const getShelvesProduct = (product_slug) => axios.get(`${BASE_URL}/shelves/product/${product_slug}/`, getConfig())
+const getShelvesProduct = product_slug =>
+  axios.get(`${BASE_URL}/shelves/product/${product_slug}/`, getConfig())
 
 /*
   -shelves-products-list:
@@ -218,7 +238,8 @@ const getShelvesProduct = (product_slug) => axios.get(`${BASE_URL}/shelves/produ
   ---------- Fields -----------
   page: integer in url query params
 */
-const getShelvesProducts = () => axios.get(`${BASE_URL}/shelves/products/`, getConfig())
+const getShelvesProducts = () =>
+  axios.get(`${BASE_URL}/shelves/products/`, getConfig())
 
 /*
   -stores-list-list:
@@ -234,7 +255,8 @@ const getStoresList = () => axios.get(`${BASE_URL}/stores/list/`, getConfig())
   ---------- Fields -----------
   slug: string in url query params [*required]
 */
-const getStoresStore = (slug) => axios.get(`${BASE_URL}/stores/store/${slug}/`, getConfig())
+const getStoresStore = slug =>
+  axios.get(`${BASE_URL}/stores/store/${slug}/`, getConfig())
 
 /*
   -support-contacts-list:
@@ -242,7 +264,8 @@ const getStoresStore = (slug) => axios.get(`${BASE_URL}/stores/store/${slug}/`, 
   ---------- Fields -----------
   page: integer in url query params
 */
-const getSupportContacts = () => axios.get(`${BASE_URL}/support/contacts/`, getConfig())
+const getSupportContacts = () =>
+  axios.get(`${BASE_URL}/support/contacts/`, getConfig())
 
 /*
   -auth-email-request-verification-create:
@@ -250,7 +273,8 @@ const getSupportContacts = () => axios.get(`${BASE_URL}/support/contacts/`, getC
   ---------- Fields -----------
 
 */
-const createVerificationRequestEmail = (body) => axios.post(`${BASE_URL}/auth/email/request-verification/`, body, getConfig())
+const createVerificationRequestEmail = body =>
+  axios.post(`${BASE_URL}/auth/email/request-verification/`, body, getConfig())
 
 /*
   -auth-email-verify-create:
@@ -259,7 +283,8 @@ const createVerificationRequestEmail = (body) => axios.post(`${BASE_URL}/auth/em
   token: string in body [*required]
   email: string in body [*required]
 */
-const createVerifyEmailAuth = (body) => axios.post(`${BASE_URL}/auth/email/verify/`, body, getConfig())
+const createVerifyEmailAuth = body =>
+  axios.post(`${BASE_URL}/auth/email/verify/`, body, getConfig())
 
 /*
   -auth-mobile-request-verification-create:
@@ -267,7 +292,8 @@ const createVerifyEmailAuth = (body) => axios.post(`${BASE_URL}/auth/email/verif
   ---------- Fields -----------
 
 */
-const createVerificationRequestMobile = (body) => axios.post(`${BASE_URL}/auth/mobile/request-verification/`, body, getConfig())
+const createVerificationRequestMobile = body =>
+  axios.post(`${BASE_URL}/auth/mobile/request-verification/`, body, getConfig())
 
 /*
   -auth-mobile-verify-create:
@@ -276,7 +302,8 @@ const createVerificationRequestMobile = (body) => axios.post(`${BASE_URL}/auth/m
   token: string in body [*required]
   phone_number: string in body [*required]
 */
-const createVerifyMobileAuth = (body) => axios.post(`${BASE_URL}/auth/mobile/verify/`, body, getConfig())
+const createVerifyMobileAuth = body =>
+  axios.post(`${BASE_URL}/auth/mobile/verify/`, body, getConfig())
 
 /*
   -cms-pages-page-read:
@@ -284,7 +311,8 @@ const createVerifyMobileAuth = (body) => axios.post(`${BASE_URL}/auth/mobile/ver
   ---------- Fields -----------
   url: string in url query params [*required]
 */
-const getCmsPages = (url) => axios.get(`${BASE_URL}/cms/pages/page/${url}/`, getConfig())
+const getCmsPages = url =>
+  axios.get(`${BASE_URL}/cms/pages/page/${url}/`, getConfig())
 
 /*
   -fields-list-mine-list:
@@ -292,7 +320,8 @@ const getCmsPages = (url) => axios.get(`${BASE_URL}/cms/pages/page/${url}/`, get
   ---------- Fields -----------
   page: integer in url query params
 */
-const getFieldsList = () => axios.get(`${BASE_URL}/fields/list/mine/`, getConfig())
+const getFieldsList = () =>
+  axios.get(`${BASE_URL}/fields/list/mine/`, getConfig())
 
 /*
   -fields-list-template-list:
@@ -300,7 +329,8 @@ const getFieldsList = () => axios.get(`${BASE_URL}/fields/list/mine/`, getConfig
   ---------- Fields -----------
   page: integer in url query params
 */
-const getFieldsList = () => axios.get(`${BASE_URL}/fields/list/template/`, getConfig())
+const getFieldsList = () =>
+  axios.get(`${BASE_URL}/fields/list/template/`, getConfig())
 
 /*
   -fields-types-choice-create:
@@ -313,7 +343,8 @@ const getFieldsList = () => axios.get(`${BASE_URL}/fields/list/template/`, getCo
   required: boolean in body
   unique: boolean in body
 */
-const createChoiceTypesFields = (body) => axios.post(`${BASE_URL}/fields/types/choice/`, body, getConfig())
+const createChoiceTypesFields = body =>
+  axios.post(`${BASE_URL}/fields/types/choice/`, body, getConfig())
 
 /*
   -fields-types-file-create:
@@ -327,7 +358,8 @@ const createChoiceTypesFields = (body) => axios.post(`${BASE_URL}/fields/types/c
   file_type: enum in body  | enum: [image,document,all]
   max_size: integer in body
 */
-const createFileTypesFields = (body) => axios.post(`${BASE_URL}/fields/types/file/`, body, getConfig())
+const createFileTypesFields = body =>
+  axios.post(`${BASE_URL}/fields/types/file/`, body, getConfig())
 
 /*
   -fields-types-number-create:
@@ -341,7 +373,8 @@ const createFileTypesFields = (body) => axios.post(`${BASE_URL}/fields/types/fil
   min_value: integer in body
   max_value: integer in body
 */
-const createNumberTypesFields = (body) => axios.post(`${BASE_URL}/fields/types/number/`, body, getConfig())
+const createNumberTypesFields = body =>
+  axios.post(`${BASE_URL}/fields/types/number/`, body, getConfig())
 
 /*
   -fields-types-short_text-create:
@@ -354,7 +387,8 @@ const createNumberTypesFields = (body) => axios.post(`${BASE_URL}/fields/types/n
   unique: boolean in body
   max_length: integer in body
 */
-const createShortTextTypesFields = (body) => axios.post(`${BASE_URL}/fields/types/short_text/`, body, getConfig())
+const createShortTextTypesFields = body =>
+  axios.post(`${BASE_URL}/fields/types/short_text/`, body, getConfig())
 
 /*
   -fields-types-yes_no-create:
@@ -366,7 +400,8 @@ const createShortTextTypesFields = (body) => axios.post(`${BASE_URL}/fields/type
   required: boolean in body
   unique: boolean in body
 */
-const createYesNoTypesFields = (body) => axios.post(`${BASE_URL}/fields/types/yes_no/`, body, getConfig())
+const createYesNoTypesFields = body =>
+  axios.post(`${BASE_URL}/fields/types/yes_no/`, body, getConfig())
 
 /*
   -inventories-inventory-edit-update:
@@ -378,7 +413,12 @@ const createYesNoTypesFields = (body) => axios.post(`${BASE_URL}/fields/types/ye
   address: string in body
   description: string in body
 */
-const updateEditInventoryInventories = (slug, body) => axios.put(`${BASE_URL}/inventories/inventory/${slug}/edit/`, body, getConfig())
+const updateEditInventoryInventories = (slug, body) =>
+  axios.put(
+    `${BASE_URL}/inventories/inventory/${slug}/edit/`,
+    body,
+    getConfig()
+  )
 
 /*
   -inventories-inventory-edit-partial_update:
@@ -390,7 +430,12 @@ const updateEditInventoryInventories = (slug, body) => axios.put(`${BASE_URL}/in
   address: string in body
   description: string in body
 */
-const partialUpdateEditInventoryInventories = (slug, body) => axios.patch(`${BASE_URL}/inventories/inventory/${slug}/edit/`, body, getConfig())
+const partialUpdateEditInventoryInventories = (slug, body) =>
+  axios.patch(
+    `${BASE_URL}/inventories/inventory/${slug}/edit/`,
+    body,
+    getConfig()
+  )
 
 /*
   -inventories-inventory-edit-delete:
@@ -398,7 +443,8 @@ const partialUpdateEditInventoryInventories = (slug, body) => axios.patch(`${BAS
   ---------- Fields -----------
   slug: string in url query params [*required]
 */
-const getInventoriesInventory = (slug) => axios.delete(`${BASE_URL}/inventories/inventory/${slug}/edit/`, getConfig())
+const getInventoriesInventory = slug =>
+  axios.delete(`${BASE_URL}/inventories/inventory/${slug}/edit/`, getConfig())
 
 /*
   -orders-cart-add-create:
@@ -408,7 +454,8 @@ const getInventoriesInventory = (slug) => axios.delete(`${BASE_URL}/inventories/
   sub_product: string in body
   count: integer in body
 */
-const createAddCartOrders = (body) => axios.post(`${BASE_URL}/orders/cart/add/`, body, getConfig())
+const createAddCartOrders = body =>
+  axios.post(`${BASE_URL}/orders/cart/add/`, body, getConfig())
 
 /*
   -orders-cart-remove-create:
@@ -417,7 +464,8 @@ const createAddCartOrders = (body) => axios.post(`${BASE_URL}/orders/cart/add/`,
   product: string in body [*required]
   sub_product: string in body
 */
-const createRemoveCartOrders = (body) => axios.post(`${BASE_URL}/orders/cart/remove/`, body, getConfig())
+const createRemoveCartOrders = body =>
+  axios.post(`${BASE_URL}/orders/cart/remove/`, body, getConfig())
 
 /*
   -orders-cart-set-create:
@@ -427,7 +475,8 @@ const createRemoveCartOrders = (body) => axios.post(`${BASE_URL}/orders/cart/rem
   sub_product: string in body
   count: integer in body
 */
-const createSetCartOrders = (body) => axios.post(`${BASE_URL}/orders/cart/set/`, body, getConfig())
+const createSetCartOrders = body =>
+  axios.post(`${BASE_URL}/orders/cart/set/`, body, getConfig())
 
 /*
   -orders-cart-show-list:
@@ -435,7 +484,8 @@ const createSetCartOrders = (body) => axios.post(`${BASE_URL}/orders/cart/set/`,
   ---------- Fields -----------
   page: integer in url query params
 */
-const getOrdersCart = () => axios.get(`${BASE_URL}/orders/cart/show/`, getConfig())
+const getOrdersCart = () =>
+  axios.get(`${BASE_URL}/orders/cart/show/`, getConfig())
 
 /*
   -orders-coupon-check-create:
@@ -443,7 +493,8 @@ const getOrdersCart = () => axios.get(`${BASE_URL}/orders/cart/show/`, getConfig
   ---------- Fields -----------
   coupon_code: string in body [*required]
 */
-const createCheckCouponOrders = (body) => axios.post(`${BASE_URL}/orders/coupon/check/`, body, getConfig())
+const createCheckCouponOrders = body =>
+  axios.post(`${BASE_URL}/orders/coupon/check/`, body, getConfig())
 
 /*
   -orders-order-create-create:
@@ -456,7 +507,8 @@ const createCheckCouponOrders = (body) => axios.post(`${BASE_URL}/orders/coupon/
   phone_number: string in body
   email: string in body
 */
-const createCreateOrderOrders = (body) => axios.post(`${BASE_URL}/orders/order/create/`, body, getConfig())
+const createCreateOrderOrders = body =>
+  axios.post(`${BASE_URL}/orders/order/create/`, body, getConfig())
 
 /*
   -orders-order-details-list:
@@ -465,7 +517,8 @@ const createCreateOrderOrders = (body) => axios.post(`${BASE_URL}/orders/order/c
   order_code: string in url query params [*required]
   page: integer in url query params
 */
-const getOrdersOrder = (order_code) => axios.get(`${BASE_URL}/orders/order/${order_code}/details/`, getConfig())
+const getOrdersOrder = order_code =>
+  axios.get(`${BASE_URL}/orders/order/${order_code}/details/`, getConfig())
 
 /*
   -orders-order-list-list:
@@ -473,7 +526,8 @@ const getOrdersOrder = (order_code) => axios.get(`${BASE_URL}/orders/order/${ord
   ---------- Fields -----------
   page: integer in url query params
 */
-const getOrdersOrder = () => axios.get(`${BASE_URL}/orders/order/list/`, getConfig())
+const getOrdersOrder = () =>
+  axios.get(`${BASE_URL}/orders/order/list/`, getConfig())
 
 /*
   -orders-special-order-create-create:
@@ -481,7 +535,12 @@ const getOrdersOrder = () => axios.get(`${BASE_URL}/orders/order/list/`, getConf
   ---------- Fields -----------
   slug: string in url query params [*required]
 */
-const createCreateOrderSpecial = (slug, body) => axios.post(`${BASE_URL}/orders/special-order/${slug}/create/`, body, getConfig())
+const createCreateOrderSpecial = (slug, body) =>
+  axios.post(
+    `${BASE_URL}/orders/special-order/${slug}/create/`,
+    body,
+    getConfig()
+  )
 
 /*
   -orders-special-order-fields-list:
@@ -490,7 +549,8 @@ const createCreateOrderSpecial = (slug, body) => axios.post(`${BASE_URL}/orders/
   slug: string in url query params [*required]
   page: integer in url query params
 */
-const getOrdersSpecial = (slug) => axios.get(`${BASE_URL}/orders/special-order/${slug}/fields/`, getConfig())
+const getOrdersSpecial = slug =>
+  axios.get(`${BASE_URL}/orders/special-order/${slug}/fields/`, getConfig())
 
 /*
   -orders-special-order-list-list:
@@ -499,7 +559,8 @@ const getOrdersSpecial = (slug) => axios.get(`${BASE_URL}/orders/special-order/$
   slug: string in url query params [*required]
   page: integer in url query params
 */
-const getOrdersSpecial = (slug) => axios.get(`${BASE_URL}/orders/special-order/${slug}/list/`, getConfig())
+const getOrdersSpecial = slug =>
+  axios.get(`${BASE_URL}/orders/special-order/${slug}/list/`, getConfig())
 
 /*
   -orders-special-order-pay-create:
@@ -509,7 +570,12 @@ const getOrdersSpecial = (slug) => axios.get(`${BASE_URL}/orders/special-order/$
   payment_method: string in body [*required]
   delivering_address: string in body [*required]
 */
-const createPayOrderSpecial = (order_code, body) => axios.post(`${BASE_URL}/orders/special-order/${order_code}/pay/`, body, getConfig())
+const createPayOrderSpecial = (order_code, body) =>
+  axios.post(
+    `${BASE_URL}/orders/special-order/${order_code}/pay/`,
+    body,
+    getConfig()
+  )
 
 /*
   -orders-special-order-show-list:
@@ -518,7 +584,8 @@ const createPayOrderSpecial = (order_code, body) => axios.post(`${BASE_URL}/orde
   order_code: string in url query params [*required]
   page: integer in url query params
 */
-const getOrdersSpecial = (order_code) => axios.get(`${BASE_URL}/orders/special-order/${order_code}/show/`, getConfig())
+const getOrdersSpecial = order_code =>
+  axios.get(`${BASE_URL}/orders/special-order/${order_code}/show/`, getConfig())
 
 /*
   -profiles-address-add-create:
@@ -529,7 +596,8 @@ const getOrdersSpecial = (order_code) => axios.get(`${BASE_URL}/orders/special-o
   phone_number: string in body
   address: string in body [*required]
 */
-const createAddAddressProfiles = (body) => axios.post(`${BASE_URL}/profiles/address/add/`, body, getConfig())
+const createAddAddressProfiles = body =>
+  axios.post(`${BASE_URL}/profiles/address/add/`, body, getConfig())
 
 /*
   -profiles-address-list-list:
@@ -537,7 +605,8 @@ const createAddAddressProfiles = (body) => axios.post(`${BASE_URL}/profiles/addr
   ---------- Fields -----------
   page: integer in url query params
 */
-const getProfilesAddress = () => axios.get(`${BASE_URL}/profiles/address/list/`, getConfig())
+const getProfilesAddress = () =>
+  axios.get(`${BASE_URL}/profiles/address/list/`, getConfig())
 
 /*
   -profiles-address-update-update:
@@ -549,7 +618,12 @@ const getProfilesAddress = () => axios.get(`${BASE_URL}/profiles/address/list/`,
   phone_number: string in body
   address: string in body [*required]
 */
-const updateUpdateAddressProfiles = (address_slug, body) => axios.put(`${BASE_URL}/profiles/address/${address_slug}/update/`, body, getConfig())
+const updateUpdateAddressProfiles = (address_slug, body) =>
+  axios.put(
+    `${BASE_URL}/profiles/address/${address_slug}/update/`,
+    body,
+    getConfig()
+  )
 
 /*
   -profiles-address-update-partial_update:
@@ -561,7 +635,12 @@ const updateUpdateAddressProfiles = (address_slug, body) => axios.put(`${BASE_UR
   phone_number: string in body
   address: string in body
 */
-const partialUpdateUpdateAddressProfiles = (address_slug, body) => axios.patch(`${BASE_URL}/profiles/address/${address_slug}/update/`, body, getConfig())
+const partialUpdateUpdateAddressProfiles = (address_slug, body) =>
+  axios.patch(
+    `${BASE_URL}/profiles/address/${address_slug}/update/`,
+    body,
+    getConfig()
+  )
 
 /*
   -profiles-address-update-delete:
@@ -569,7 +648,11 @@ const partialUpdateUpdateAddressProfiles = (address_slug, body) => axios.patch(`
   ---------- Fields -----------
   address_slug: string in url query params [*required]
 */
-const getProfilesAddress = (address_slug) => axios.delete(`${BASE_URL}/profiles/address/${address_slug}/update/`, getConfig())
+const getProfilesAddress = address_slug =>
+  axios.delete(
+    `${BASE_URL}/profiles/address/${address_slug}/update/`,
+    getConfig()
+  )
 
 /*
   -profiles-merchant-add-create:
@@ -582,7 +665,8 @@ const getProfilesAddress = (address_slug) => axios.delete(`${BASE_URL}/profiles/
   phone_number: string in body [*required]
   is_admin: boolean in body
 */
-const createAddMerchantProfiles = (body) => axios.post(`${BASE_URL}/profiles/merchant/add/`, body, getConfig())
+const createAddMerchantProfiles = body =>
+  axios.post(`${BASE_URL}/profiles/merchant/add/`, body, getConfig())
 
 /*
   -profiles-merchant-edit-update:
@@ -597,7 +681,8 @@ const createAddMerchantProfiles = (body) => axios.post(`${BASE_URL}/profiles/mer
   avatar: string in body
   is_admin: boolean in body
 */
-const updateEditMerchantProfiles = (id, body) => axios.put(`${BASE_URL}/profiles/merchant/${id}/edit/`, body, getConfig())
+const updateEditMerchantProfiles = (id, body) =>
+  axios.put(`${BASE_URL}/profiles/merchant/${id}/edit/`, body, getConfig())
 
 /*
   -profiles-merchant-edit-partial_update:
@@ -612,7 +697,8 @@ const updateEditMerchantProfiles = (id, body) => axios.put(`${BASE_URL}/profiles
   avatar: string in body
   is_admin: boolean in body
 */
-const partialUpdateEditMerchantProfiles = (id, body) => axios.patch(`${BASE_URL}/profiles/merchant/${id}/edit/`, body, getConfig())
+const partialUpdateEditMerchantProfiles = (id, body) =>
+  axios.patch(`${BASE_URL}/profiles/merchant/${id}/edit/`, body, getConfig())
 
 /*
   -profiles-merchant-list-list:
@@ -620,7 +706,8 @@ const partialUpdateEditMerchantProfiles = (id, body) => axios.patch(`${BASE_URL}
   ---------- Fields -----------
   page: integer in url query params
 */
-const getProfilesMerchant = () => axios.get(`${BASE_URL}/profiles/merchant/list/`, getConfig())
+const getProfilesMerchant = () =>
+  axios.get(`${BASE_URL}/profiles/merchant/list/`, getConfig())
 
 /*
   -profiles-profile-edit-update:
@@ -634,7 +721,8 @@ const getProfilesMerchant = () => axios.get(`${BASE_URL}/profiles/merchant/list/
   avatar: string in body
   guest: boolean in body
 */
-const updateEditProfileProfiles = (id, body) => axios.put(`${BASE_URL}/profiles/profile/${id}/edit/`, body, getConfig())
+const updateEditProfileProfiles = (id, body) =>
+  axios.put(`${BASE_URL}/profiles/profile/${id}/edit/`, body, getConfig())
 
 /*
   -profiles-profile-edit-partial_update:
@@ -648,7 +736,8 @@ const updateEditProfileProfiles = (id, body) => axios.put(`${BASE_URL}/profiles/
   avatar: string in body
   guest: boolean in body
 */
-const partialUpdateEditProfileProfiles = (id, body) => axios.patch(`${BASE_URL}/profiles/profile/${id}/edit/`, body, getConfig())
+const partialUpdateEditProfileProfiles = (id, body) =>
+  axios.patch(`${BASE_URL}/profiles/profile/${id}/edit/`, body, getConfig())
 
 /*
   -profiles-profile-me-list:
@@ -656,7 +745,8 @@ const partialUpdateEditProfileProfiles = (id, body) => axios.patch(`${BASE_URL}/
   ---------- Fields -----------
   page: integer in url query params
 */
-const getProfilesProfile = () => axios.get(`${BASE_URL}/profiles/profile/me/`, getConfig())
+const getProfilesProfile = () =>
+  axios.get(`${BASE_URL}/profiles/profile/me/`, getConfig())
 
 /*
   -shelves-brands-add-create:
@@ -668,7 +758,8 @@ const getProfilesProfile = () => axios.get(`${BASE_URL}/profiles/profile/me/`, g
   description: string in body
   thumbnail: string in body
 */
-const createAddBrandsShelves = (body) => axios.post(`${BASE_URL}/shelves/brands/add/`, body, getConfig())
+const createAddBrandsShelves = body =>
+  axios.post(`${BASE_URL}/shelves/brands/add/`, body, getConfig())
 
 /*
   -shelves-brands-brand-read:
@@ -676,7 +767,8 @@ const createAddBrandsShelves = (body) => axios.post(`${BASE_URL}/shelves/brands/
   ---------- Fields -----------
   slug: string in url query params [*required]
 */
-const getShelvesBrands = (slug) => axios.get(`${BASE_URL}/shelves/brands/brand/${slug}/`, getConfig())
+const getShelvesBrands = slug =>
+  axios.get(`${BASE_URL}/shelves/brands/brand/${slug}/`, getConfig())
 
 /*
   -shelves-brands-list-list:
@@ -684,7 +776,8 @@ const getShelvesBrands = (slug) => axios.get(`${BASE_URL}/shelves/brands/brand/$
   ---------- Fields -----------
   page: integer in url query params
 */
-const getShelvesBrands = () => axios.get(`${BASE_URL}/shelves/brands/list/`, getConfig())
+const getShelvesBrands = () =>
+  axios.get(`${BASE_URL}/shelves/brands/list/`, getConfig())
 
 /*
   -shelves-categories-add-create:
@@ -700,7 +793,8 @@ const getShelvesBrands = () => axios.get(`${BASE_URL}/shelves/brands/list/`, get
   thumbnail: string in body
   cover: string in body
 */
-const createAddCategoriesShelves = (body) => axios.post(`${BASE_URL}/shelves/categories/add/`, body, getConfig())
+const createAddCategoriesShelves = body =>
+  axios.post(`${BASE_URL}/shelves/categories/add/`, body, getConfig())
 
 /*
   -shelves-categories-category-read:
@@ -708,7 +802,8 @@ const createAddCategoriesShelves = (body) => axios.post(`${BASE_URL}/shelves/cat
   ---------- Fields -----------
   slug: string in url query params [*required]
 */
-const getShelvesCategories = (slug) => axios.get(`${BASE_URL}/shelves/categories/category/${slug}/`, getConfig())
+const getShelvesCategories = slug =>
+  axios.get(`${BASE_URL}/shelves/categories/category/${slug}/`, getConfig())
 
 /*
   -shelves-categories-list-list:
@@ -716,7 +811,8 @@ const getShelvesCategories = (slug) => axios.get(`${BASE_URL}/shelves/categories
   ---------- Fields -----------
   page: integer in url query params
 */
-const getShelvesCategories = () => axios.get(`${BASE_URL}/shelves/categories/list/`, getConfig())
+const getShelvesCategories = () =>
+  axios.get(`${BASE_URL}/shelves/categories/list/`, getConfig())
 
 /*
   -shelves-category-products-list:
@@ -725,7 +821,11 @@ const getShelvesCategories = () => axios.get(`${BASE_URL}/shelves/categories/lis
   category_slug: string in url query params [*required]
   page: integer in url query params
 */
-const getShelvesCategory = (category_slug) => axios.get(`${BASE_URL}/shelves/category/${category_slug}/products/`, getConfig())
+const getShelvesCategory = category_slug =>
+  axios.get(
+    `${BASE_URL}/shelves/category/${category_slug}/products/`,
+    getConfig()
+  )
 
 /*
   -shelves-category-products-create:
@@ -748,7 +848,12 @@ const getShelvesCategory = (category_slug) => axios.get(`${BASE_URL}/shelves/cat
   delivery_await_tehran: integer in body
   pay_in_destination: boolean in body
 */
-const createProductsCategoryShelves = (category_slug, body) => axios.post(`${BASE_URL}/shelves/category/${category_slug}/products/`, body, getConfig())
+const createProductsCategoryShelves = (category_slug, body) =>
+  axios.post(
+    `${BASE_URL}/shelves/category/${category_slug}/products/`,
+    body,
+    getConfig()
+  )
 
 /*
   -shelves-favorites-add-create:
@@ -756,7 +861,8 @@ const createProductsCategoryShelves = (category_slug, body) => axios.post(`${BAS
   ---------- Fields -----------
   product_slug: string in body [*required]
 */
-const createAddFavoritesShelves = (body) => axios.post(`${BASE_URL}/shelves/favorites/add/`, body, getConfig())
+const createAddFavoritesShelves = body =>
+  axios.post(`${BASE_URL}/shelves/favorites/add/`, body, getConfig())
 
 /*
   -shelves-favorites-list-list:
@@ -764,7 +870,8 @@ const createAddFavoritesShelves = (body) => axios.post(`${BASE_URL}/shelves/favo
   ---------- Fields -----------
   page: integer in url query params
 */
-const getShelvesFavorites = () => axios.get(`${BASE_URL}/shelves/favorites/list/`, getConfig())
+const getShelvesFavorites = () =>
+  axios.get(`${BASE_URL}/shelves/favorites/list/`, getConfig())
 
 /*
   -shelves-favorites-remove-create:
@@ -772,7 +879,8 @@ const getShelvesFavorites = () => axios.get(`${BASE_URL}/shelves/favorites/list/
   ---------- Fields -----------
   product_slug: string in body [*required]
 */
-const createRemoveFavoritesShelves = (body) => axios.post(`${BASE_URL}/shelves/favorites/remove/`, body, getConfig())
+const createRemoveFavoritesShelves = body =>
+  axios.post(`${BASE_URL}/shelves/favorites/remove/`, body, getConfig())
 
 /*
   -shelves-product-sub_products-create:
@@ -780,7 +888,12 @@ const createRemoveFavoritesShelves = (body) => axios.post(`${BASE_URL}/shelves/f
   ---------- Fields -----------
   product_slug: string in url query params [*required]
 */
-const createSubProductsProductShelves = (product_slug, body) => axios.post(`${BASE_URL}/shelves/product/${product_slug}/sub_products/`, body, getConfig())
+const createSubProductsProductShelves = (product_slug, body) =>
+  axios.post(
+    `${BASE_URL}/shelves/product/${product_slug}/sub_products/`,
+    body,
+    getConfig()
+  )
 
 /*
   -shelves-product-types-add-create:
@@ -793,7 +906,8 @@ const createSubProductsProductShelves = (product_slug, body) => axios.post(`${BA
   slug: string in body
   description: string in body
 */
-const createAddTypesProduct = (body) => axios.post(`${BASE_URL}/shelves/product-types/add/`, body, getConfig())
+const createAddTypesProduct = body =>
+  axios.post(`${BASE_URL}/shelves/product-types/add/`, body, getConfig())
 
 /*
   -shelves-product-types-list-list:
@@ -801,7 +915,8 @@ const createAddTypesProduct = (body) => axios.post(`${BASE_URL}/shelves/product-
   ---------- Fields -----------
   page: integer in url query params
 */
-const getShelvesProduct = () => axios.get(`${BASE_URL}/shelves/product-types/list/`, getConfig())
+const getShelvesProduct = () =>
+  axios.get(`${BASE_URL}/shelves/product-types/list/`, getConfig())
 
 /*
   -shelves-product-types-product-type-read:
@@ -809,7 +924,11 @@ const getShelvesProduct = () => axios.get(`${BASE_URL}/shelves/product-types/lis
   ---------- Fields -----------
   slug: string in url query params [*required]
 */
-const getShelvesProduct = (slug) => axios.get(`${BASE_URL}/shelves/product-types/product-type/${slug}/`, getConfig())
+const getShelvesProduct = slug =>
+  axios.get(
+    `${BASE_URL}/shelves/product-types/product-type/${slug}/`,
+    getConfig()
+  )
 
 /*
   -shelves-store-products-list:
@@ -818,7 +937,8 @@ const getShelvesProduct = (slug) => axios.get(`${BASE_URL}/shelves/product-types
   store_slug: string in url query params [*required]
   page: integer in url query params
 */
-const getShelvesStore = (store_slug) => axios.get(`${BASE_URL}/shelves/store/${store_slug}/products/`, getConfig())
+const getShelvesStore = store_slug =>
+  axios.get(`${BASE_URL}/shelves/store/${store_slug}/products/`, getConfig())
 
 /*
   -stores-mine-add-create:
@@ -831,7 +951,8 @@ const getShelvesStore = (store_slug) => axios.get(`${BASE_URL}/shelves/store/${s
   logo: string in body
   cover: string in body
 */
-const createAddMineStores = (body) => axios.post(`${BASE_URL}/stores/mine/add/`, body, getConfig())
+const createAddMineStores = body =>
+  axios.post(`${BASE_URL}/stores/mine/add/`, body, getConfig())
 
 /*
   -stores-mine-list-list:
@@ -839,7 +960,8 @@ const createAddMineStores = (body) => axios.post(`${BASE_URL}/stores/mine/add/`,
   ---------- Fields -----------
   page: integer in url query params
 */
-const getStoresMine = () => axios.get(`${BASE_URL}/stores/mine/list/`, getConfig())
+const getStoresMine = () =>
+  axios.get(`${BASE_URL}/stores/mine/list/`, getConfig())
 
 /*
   -stores-mine-store-read:
@@ -847,7 +969,8 @@ const getStoresMine = () => axios.get(`${BASE_URL}/stores/mine/list/`, getConfig
   ---------- Fields -----------
   slug: string in url query params [*required]
 */
-const getStoresMine = (slug) => axios.get(`${BASE_URL}/stores/mine/store/${slug}/`, getConfig())
+const getStoresMine = slug =>
+  axios.get(`${BASE_URL}/stores/mine/store/${slug}/`, getConfig())
 
 /*
   -support-tickets-create-create:
@@ -859,7 +982,8 @@ const getStoresMine = (slug) => axios.get(`${BASE_URL}/stores/mine/store/${slug}
   product: string in body
   order: string in body
 */
-const createCreateTicketsSupport = (body) => axios.post(`${BASE_URL}/support/tickets/create/`, body, getConfig())
+const createCreateTicketsSupport = body =>
+  axios.post(`${BASE_URL}/support/tickets/create/`, body, getConfig())
 
 /*
   -support-tickets-list-list:
@@ -867,7 +991,8 @@ const createCreateTicketsSupport = (body) => axios.post(`${BASE_URL}/support/tic
   ---------- Fields -----------
   page: integer in url query params
 */
-const getSupportTickets = () => axios.get(`${BASE_URL}/support/tickets/list/`, getConfig())
+const getSupportTickets = () =>
+  axios.get(`${BASE_URL}/support/tickets/list/`, getConfig())
 
 /*
   -support-tickets-ticket-read:
@@ -875,7 +1000,8 @@ const getSupportTickets = () => axios.get(`${BASE_URL}/support/tickets/list/`, g
   ---------- Fields -----------
   ticket_code: string in url query params [*required]
 */
-const getSupportTickets = (ticket_code) => axios.get(`${BASE_URL}/support/tickets/ticket/${ticket_code}/`, getConfig())
+const getSupportTickets = ticket_code =>
+  axios.get(`${BASE_URL}/support/tickets/ticket/${ticket_code}/`, getConfig())
 
 /*
   -auth-password-reset-email-create:
@@ -883,7 +1009,8 @@ const getSupportTickets = (ticket_code) => axios.get(`${BASE_URL}/support/ticket
   ---------- Fields -----------
   email: string in body [*required]
 */
-const createEmailResetPassword = (body) => axios.post(`${BASE_URL}/auth/password/reset/email/`, body, getConfig())
+const createEmailResetPassword = body =>
+  axios.post(`${BASE_URL}/auth/password/reset/email/`, body, getConfig())
 
 /*
   -auth-password-reset-mobile-create:
@@ -891,7 +1018,8 @@ const createEmailResetPassword = (body) => axios.post(`${BASE_URL}/auth/password
   ---------- Fields -----------
   phone_number: string in body [*required]
 */
-const createMobileResetPassword = (body) => axios.post(`${BASE_URL}/auth/password/reset/mobile/`, body, getConfig())
+const createMobileResetPassword = body =>
+  axios.post(`${BASE_URL}/auth/password/reset/mobile/`, body, getConfig())
 
 /*
   -orders-panel-order-details-list:
@@ -900,7 +1028,11 @@ const createMobileResetPassword = (body) => axios.post(`${BASE_URL}/auth/passwor
   order_code: string in url query params [*required]
   page: integer in url query params
 */
-const getOrdersPanel = (order_code) => axios.get(`${BASE_URL}/orders/panel/order/${order_code}/details/`, getConfig())
+const getOrdersPanel = order_code =>
+  axios.get(
+    `${BASE_URL}/orders/panel/order/${order_code}/details/`,
+    getConfig()
+  )
 
 /*
   -payment-payment-pasargad-confirm-create:
@@ -909,7 +1041,8 @@ const getOrdersPanel = (order_code) => axios.get(`${BASE_URL}/orders/panel/order
   tref: string in body [*required]
   fail: boolean in body
 */
-const createConfirmPasargadPayment = (body) => axios.post(`${BASE_URL}/payment/payment/pasargad/confirm/`, body, getConfig())
+const createConfirmPasargadPayment = body =>
+  axios.post(`${BASE_URL}/payment/payment/pasargad/confirm/`, body, getConfig())
 
 /*
   -payment-payment-pasargad-process-create:
@@ -917,7 +1050,8 @@ const createConfirmPasargadPayment = (body) => axios.post(`${BASE_URL}/payment/p
   ---------- Fields -----------
   transaction_code: string in body
 */
-const createProcessPasargadPayment = (body) => axios.post(`${BASE_URL}/payment/payment/pasargad/process/`, body, getConfig())
+const createProcessPasargadPayment = body =>
+  axios.post(`${BASE_URL}/payment/payment/pasargad/process/`, body, getConfig())
 
 /*
   -payment-payment-pasargad-request-create:
@@ -926,7 +1060,8 @@ const createProcessPasargadPayment = (body) => axios.post(`${BASE_URL}/payment/p
   amount: integer in body
   related_order: string in body
 */
-const createRequestPasargadPayment = (body) => axios.post(`${BASE_URL}/payment/payment/pasargad/request/`, body, getConfig())
+const createRequestPasargadPayment = body =>
+  axios.post(`${BASE_URL}/payment/payment/pasargad/request/`, body, getConfig())
 
 /*
   -shelves-brands-brand-edit-update:
@@ -939,7 +1074,8 @@ const createRequestPasargadPayment = (body) => axios.post(`${BASE_URL}/payment/p
   description: string in body
   thumbnail: string in body
 */
-const updateEditBrandBrands = (slug, body) => axios.put(`${BASE_URL}/shelves/brands/brand/${slug}/edit/`, body, getConfig())
+const updateEditBrandBrands = (slug, body) =>
+  axios.put(`${BASE_URL}/shelves/brands/brand/${slug}/edit/`, body, getConfig())
 
 /*
   -shelves-brands-brand-edit-partial_update:
@@ -952,7 +1088,12 @@ const updateEditBrandBrands = (slug, body) => axios.put(`${BASE_URL}/shelves/bra
   description: string in body
   thumbnail: string in body
 */
-const partialUpdateEditBrandBrands = (slug, body) => axios.patch(`${BASE_URL}/shelves/brands/brand/${slug}/edit/`, body, getConfig())
+const partialUpdateEditBrandBrands = (slug, body) =>
+  axios.patch(
+    `${BASE_URL}/shelves/brands/brand/${slug}/edit/`,
+    body,
+    getConfig()
+  )
 
 /*
   -shelves-brands-brand-edit-delete:
@@ -960,7 +1101,8 @@ const partialUpdateEditBrandBrands = (slug, body) => axios.patch(`${BASE_URL}/sh
   ---------- Fields -----------
   slug: string in url query params [*required]
 */
-const getShelvesBrands = (slug) => axios.delete(`${BASE_URL}/shelves/brands/brand/${slug}/edit/`, getConfig())
+const getShelvesBrands = slug =>
+  axios.delete(`${BASE_URL}/shelves/brands/brand/${slug}/edit/`, getConfig())
 
 /*
   -shelves-categories-category-edit-update:
@@ -977,7 +1119,12 @@ const getShelvesBrands = (slug) => axios.delete(`${BASE_URL}/shelves/brands/bran
   thumbnail: string in body
   cover: string in body
 */
-const updateEditCategoryCategories = (slug, body) => axios.put(`${BASE_URL}/shelves/categories/category/${slug}/edit/`, body, getConfig())
+const updateEditCategoryCategories = (slug, body) =>
+  axios.put(
+    `${BASE_URL}/shelves/categories/category/${slug}/edit/`,
+    body,
+    getConfig()
+  )
 
 /*
   -shelves-categories-category-edit-partial_update:
@@ -994,7 +1141,12 @@ const updateEditCategoryCategories = (slug, body) => axios.put(`${BASE_URL}/shel
   thumbnail: string in body
   cover: string in body
 */
-const partialUpdateEditCategoryCategories = (slug, body) => axios.patch(`${BASE_URL}/shelves/categories/category/${slug}/edit/`, body, getConfig())
+const partialUpdateEditCategoryCategories = (slug, body) =>
+  axios.patch(
+    `${BASE_URL}/shelves/categories/category/${slug}/edit/`,
+    body,
+    getConfig()
+  )
 
 /*
   -shelves-categories-category-edit-delete:
@@ -1002,7 +1154,11 @@ const partialUpdateEditCategoryCategories = (slug, body) => axios.patch(`${BASE_
   ---------- Fields -----------
   slug: string in url query params [*required]
 */
-const getShelvesCategories = (slug) => axios.delete(`${BASE_URL}/shelves/categories/category/${slug}/edit/`, getConfig())
+const getShelvesCategories = slug =>
+  axios.delete(
+    `${BASE_URL}/shelves/categories/category/${slug}/edit/`,
+    getConfig()
+  )
 
 /*
   -shelves-categories-featured-list-list:
@@ -1010,7 +1166,8 @@ const getShelvesCategories = (slug) => axios.delete(`${BASE_URL}/shelves/categor
   ---------- Fields -----------
   page: integer in url query params
 */
-const getShelvesCategories = () => axios.get(`${BASE_URL}/shelves/categories/featured/list/`, getConfig())
+const getShelvesCategories = () =>
+  axios.get(`${BASE_URL}/shelves/categories/featured/list/`, getConfig())
 
 /*
   -shelves-categories-mine-list-list:
@@ -1018,7 +1175,8 @@ const getShelvesCategories = () => axios.get(`${BASE_URL}/shelves/categories/fea
   ---------- Fields -----------
   page: integer in url query params
 */
-const getShelvesCategories = () => axios.get(`${BASE_URL}/shelves/categories/mine/list/`, getConfig())
+const getShelvesCategories = () =>
+  axios.get(`${BASE_URL}/shelves/categories/mine/list/`, getConfig())
 
 /*
   -shelves-panel-product-images-add-create:
@@ -1029,7 +1187,8 @@ const getShelvesCategories = () => axios.get(`${BASE_URL}/shelves/categories/min
   image: string in body [*required]
   slug: string in body
 */
-const createAddImagesProduct = (body) => axios.post(`${BASE_URL}/shelves/panel/product-images/add/`, body, getConfig())
+const createAddImagesProduct = body =>
+  axios.post(`${BASE_URL}/shelves/panel/product-images/add/`, body, getConfig())
 
 /*
   -shelves-panel-product-inventories-add-create:
@@ -1040,7 +1199,12 @@ const createAddImagesProduct = (body) => axios.post(`${BASE_URL}/shelves/panel/p
   stock_count: integer in body
   slug: string in body
 */
-const createAddInventoriesProduct = (body) => axios.post(`${BASE_URL}/shelves/panel/product-inventories/add/`, body, getConfig())
+const createAddInventoriesProduct = body =>
+  axios.post(
+    `${BASE_URL}/shelves/panel/product-inventories/add/`,
+    body,
+    getConfig()
+  )
 
 /*
   -shelves-panel-products-add-create:
@@ -1069,7 +1233,8 @@ const createAddInventoriesProduct = (body) => axios.post(`${BASE_URL}/shelves/pa
   delivery_await_tehran: integer in body
   pay_in_destination: boolean in body
 */
-const createAddProductsPanel = (body) => axios.post(`${BASE_URL}/shelves/panel/products/add/`, body, getConfig())
+const createAddProductsPanel = body =>
+  axios.post(`${BASE_URL}/shelves/panel/products/add/`, body, getConfig())
 
 /*
   -shelves-panel-products-list-list:
@@ -1077,7 +1242,8 @@ const createAddProductsPanel = (body) => axios.post(`${BASE_URL}/shelves/panel/p
   ---------- Fields -----------
   page: integer in url query params
 */
-const getShelvesPanel = () => axios.get(`${BASE_URL}/shelves/panel/products/list/`, getConfig())
+const getShelvesPanel = () =>
+  axios.get(`${BASE_URL}/shelves/panel/products/list/`, getConfig())
 
 /*
   -shelves-panel-products-product-read:
@@ -1085,7 +1251,8 @@ const getShelvesPanel = () => axios.get(`${BASE_URL}/shelves/panel/products/list
   ---------- Fields -----------
   slug: string in url query params [*required]
 */
-const getShelvesPanel = (slug) => axios.get(`${BASE_URL}/shelves/panel/products/product/${slug}/`, getConfig())
+const getShelvesPanel = slug =>
+  axios.get(`${BASE_URL}/shelves/panel/products/product/${slug}/`, getConfig())
 
 /*
   -shelves-product-types-product-type-edit-update:
@@ -1099,7 +1266,12 @@ const getShelvesPanel = (slug) => axios.get(`${BASE_URL}/shelves/panel/products/
   slug: string in body
   description: string in body
 */
-const updateEditTypeProduct = (slug, body) => axios.put(`${BASE_URL}/shelves/product-types/product-type/${slug}/edit/`, body, getConfig())
+const updateEditTypeProduct = (slug, body) =>
+  axios.put(
+    `${BASE_URL}/shelves/product-types/product-type/${slug}/edit/`,
+    body,
+    getConfig()
+  )
 
 /*
   -shelves-product-types-product-type-edit-partial_update:
@@ -1113,7 +1285,12 @@ const updateEditTypeProduct = (slug, body) => axios.put(`${BASE_URL}/shelves/pro
   slug: string in body
   description: string in body
 */
-const partialUpdateEditTypeProduct = (slug, body) => axios.patch(`${BASE_URL}/shelves/product-types/product-type/${slug}/edit/`, body, getConfig())
+const partialUpdateEditTypeProduct = (slug, body) =>
+  axios.patch(
+    `${BASE_URL}/shelves/product-types/product-type/${slug}/edit/`,
+    body,
+    getConfig()
+  )
 
 /*
   -stores-mine-store-edit-update:
@@ -1127,7 +1304,8 @@ const partialUpdateEditTypeProduct = (slug, body) => axios.patch(`${BASE_URL}/sh
   logo: string in body
   cover: string in body
 */
-const updateEditStoreMine = (slug, body) => axios.put(`${BASE_URL}/stores/mine/store/${slug}/edit/`, body, getConfig())
+const updateEditStoreMine = (slug, body) =>
+  axios.put(`${BASE_URL}/stores/mine/store/${slug}/edit/`, body, getConfig())
 
 /*
   -stores-mine-store-edit-partial_update:
@@ -1141,7 +1319,8 @@ const updateEditStoreMine = (slug, body) => axios.put(`${BASE_URL}/stores/mine/s
   logo: string in body
   cover: string in body
 */
-const partialUpdateEditStoreMine = (slug, body) => axios.patch(`${BASE_URL}/stores/mine/store/${slug}/edit/`, body, getConfig())
+const partialUpdateEditStoreMine = (slug, body) =>
+  axios.patch(`${BASE_URL}/stores/mine/store/${slug}/edit/`, body, getConfig())
 
 /*
   -support-tickets-ticket-reply-create:
@@ -1150,7 +1329,12 @@ const partialUpdateEditStoreMine = (slug, body) => axios.patch(`${BASE_URL}/stor
   ticket_code: string in url query params [*required]
   text: string in body [*required]
 */
-const createReplyTicketTickets = (ticket_code, body) => axios.post(`${BASE_URL}/support/tickets/ticket/${ticket_code}/reply/`, body, getConfig())
+const createReplyTicketTickets = (ticket_code, body) =>
+  axios.post(
+    `${BASE_URL}/support/tickets/ticket/${ticket_code}/reply/`,
+    body,
+    getConfig()
+  )
 
 /*
   -auth-password-reset-email-confirm-create:
@@ -1161,7 +1345,12 @@ const createReplyTicketTickets = (ticket_code, body) => axios.post(`${BASE_URL}/
   email: string in body [*required]
   new_password: string in body [*required]
 */
-const createConfirmEmailReset = (body) => axios.post(`${BASE_URL}/auth/password/reset/email/confirm/`, body, getConfig())
+const createConfirmEmailReset = body =>
+  axios.post(
+    `${BASE_URL}/auth/password/reset/email/confirm/`,
+    body,
+    getConfig()
+  )
 
 /*
   -auth-password-reset-mobile-confirm-create:
@@ -1172,7 +1361,12 @@ const createConfirmEmailReset = (body) => axios.post(`${BASE_URL}/auth/password/
   phone_number: string in body [*required]
   new_password: string in body [*required]
 */
-const createConfirmMobileReset = (body) => axios.post(`${BASE_URL}/auth/password/reset/mobile/confirm/`, body, getConfig())
+const createConfirmMobileReset = body =>
+  axios.post(
+    `${BASE_URL}/auth/password/reset/mobile/confirm/`,
+    body,
+    getConfig()
+  )
 
 /*
   -shelves-panel-product-images-product-image-edit-update:
@@ -1183,7 +1377,12 @@ const createConfirmMobileReset = (body) => axios.post(`${BASE_URL}/auth/password
   image: string in body [*required]
   slug: string in body
 */
-const updateEditImageProduct = (slug, body) => axios.put(`${BASE_URL}/shelves/panel/product-images/product-image/${slug}/edit/`, body, getConfig())
+const updateEditImageProduct = (slug, body) =>
+  axios.put(
+    `${BASE_URL}/shelves/panel/product-images/product-image/${slug}/edit/`,
+    body,
+    getConfig()
+  )
 
 /*
   -shelves-panel-product-images-product-image-edit-partial_update:
@@ -1194,7 +1393,12 @@ const updateEditImageProduct = (slug, body) => axios.put(`${BASE_URL}/shelves/pa
   image: string in body
   slug: string in body
 */
-const partialUpdateEditImageProduct = (slug, body) => axios.patch(`${BASE_URL}/shelves/panel/product-images/product-image/${slug}/edit/`, body, getConfig())
+const partialUpdateEditImageProduct = (slug, body) =>
+  axios.patch(
+    `${BASE_URL}/shelves/panel/product-images/product-image/${slug}/edit/`,
+    body,
+    getConfig()
+  )
 
 /*
   -shelves-panel-product-images-product-image-edit-delete:
@@ -1202,7 +1406,11 @@ const partialUpdateEditImageProduct = (slug, body) => axios.patch(`${BASE_URL}/s
   ---------- Fields -----------
   slug: string in url query params [*required]
 */
-const getShelvesPanel = (slug) => axios.delete(`${BASE_URL}/shelves/panel/product-images/product-image/${slug}/edit/`, getConfig())
+const getShelvesPanel = slug =>
+  axios.delete(
+    `${BASE_URL}/shelves/panel/product-images/product-image/${slug}/edit/`,
+    getConfig()
+  )
 
 /*
   -shelves-panel-product-inventories-product-inventory-edit-update:
@@ -1212,7 +1420,12 @@ const getShelvesPanel = (slug) => axios.delete(`${BASE_URL}/shelves/panel/produc
   stock_count: integer in body
   slug: string in body
 */
-const updateEditInventoryProduct = (slug, body) => axios.put(`${BASE_URL}/shelves/panel/product-inventories/product-inventory/${slug}/edit/`, body, getConfig())
+const updateEditInventoryProduct = (slug, body) =>
+  axios.put(
+    `${BASE_URL}/shelves/panel/product-inventories/product-inventory/${slug}/edit/`,
+    body,
+    getConfig()
+  )
 
 /*
   -shelves-panel-product-inventories-product-inventory-edit-partial_update:
@@ -1222,7 +1435,12 @@ const updateEditInventoryProduct = (slug, body) => axios.put(`${BASE_URL}/shelve
   stock_count: integer in body
   slug: string in body
 */
-const partialUpdateEditInventoryProduct = (slug, body) => axios.patch(`${BASE_URL}/shelves/panel/product-inventories/product-inventory/${slug}/edit/`, body, getConfig())
+const partialUpdateEditInventoryProduct = (slug, body) =>
+  axios.patch(
+    `${BASE_URL}/shelves/panel/product-inventories/product-inventory/${slug}/edit/`,
+    body,
+    getConfig()
+  )
 
 /*
   -shelves-panel-product-inventories-product-inventory-edit-delete:
@@ -1230,7 +1448,11 @@ const partialUpdateEditInventoryProduct = (slug, body) => axios.patch(`${BASE_UR
   ---------- Fields -----------
   slug: string in url query params [*required]
 */
-const getShelvesPanel = (slug) => axios.delete(`${BASE_URL}/shelves/panel/product-inventories/product-inventory/${slug}/edit/`, getConfig())
+const getShelvesPanel = slug =>
+  axios.delete(
+    `${BASE_URL}/shelves/panel/product-inventories/product-inventory/${slug}/edit/`,
+    getConfig()
+  )
 
 /*
   -shelves-panel-products-product-edit-update:
@@ -1260,7 +1482,12 @@ const getShelvesPanel = (slug) => axios.delete(`${BASE_URL}/shelves/panel/produc
   delivery_await_tehran: integer in body
   pay_in_destination: boolean in body
 */
-const updateEditProductProducts = (slug, body) => axios.put(`${BASE_URL}/shelves/panel/products/product/${slug}/edit/`, body, getConfig())
+const updateEditProductProducts = (slug, body) =>
+  axios.put(
+    `${BASE_URL}/shelves/panel/products/product/${slug}/edit/`,
+    body,
+    getConfig()
+  )
 
 /*
   -shelves-panel-products-product-edit-partial_update:
@@ -1290,4 +1517,9 @@ const updateEditProductProducts = (slug, body) => axios.put(`${BASE_URL}/shelves
   delivery_await_tehran: integer in body
   pay_in_destination: boolean in body
 */
-const partialUpdateEditProductProducts = (slug, body) => axios.patch(`${BASE_URL}/shelves/panel/products/product/${slug}/edit/`, body, getConfig())
+const partialUpdateEditProductProducts = (slug, body) =>
+  axios.patch(
+    `${BASE_URL}/shelves/panel/products/product/${slug}/edit/`,
+    body,
+    getConfig()
+  )
