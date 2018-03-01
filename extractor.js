@@ -96,7 +96,7 @@ function enhanceWithAxios(apiMethodObject, path, targetKeys) {
     )
 
     const wholeMethodToPrint = `
-/*
+/**
   ${path}:
   ${restrictSentenceLength(description || 'No Description', 15)}
   ---------- Fields -----------
@@ -125,7 +125,7 @@ const ${name} = ${fn}
     const params = getParamsAsComments(fields)
 
     const wholeMethodToPrint = `
-/*
+/**
   ${path}:
   ${restrictSentenceLength(description || 'No Description', 15)}
   ---------- Fields -----------
@@ -142,10 +142,10 @@ function getParamsAsComments(fields) {
   return fields
     ? fields.map(
         field =>
-          `${field.name}: ${field.schema._type} in ${field.location === 'form' ? 'body' : 'url query params'} ${
+          `@param ${field.name}: {${field.schema._type}} in ${field.location === 'form' ? 'body' : 'url query params'} ${
             field.required ? '[*required]' : ''
           } ${
-            field.schema._type === 'enum' ? `| enum: [${field.schema.enum}]` : ''
+            field.schema._type === 'enum' ? `-> enum: [${field.schema.enum}]` : ''
           }`
       )
     : []
