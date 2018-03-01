@@ -56,7 +56,12 @@ const removeChar = charsList => string =>
     .join('')
 
 function enhanceWithAxios(apiMethodObject, path, targetKeys) {
-  const { action: method, url: relativeUrl, fields } = apiMethodObject
+  const {
+    action: method,
+    url: relativeUrl,
+    fields,
+    description
+  } = apiMethodObject
   const paramRegExp = /\{(\w+)\}/g
   const urlParams = relativeUrl.match(paramRegExp)
 
@@ -67,6 +72,7 @@ function enhanceWithAxios(apiMethodObject, path, targetKeys) {
   }
 
   const absoluteUrl = '{BASE_URL}' + relativeUrl
+
   const absoluteUrlWithTemplates = absoluteUrl.replace(
     paramRegExp,
     matchStr => '$' + matchStr
@@ -76,17 +82,30 @@ function enhanceWithAxios(apiMethodObject, path, targetKeys) {
     const fn = `(${
       arguments ? `${arguments}, ` : ''
     }body) => axios.${method}(\`${absoluteUrlWithTemplates}\`, body, getConfig())`
+
     const [refinedPath, startsWithCommonVerbs] = refineApiPath(
       path,
       targetKeys,
       method
     )
 
+    const params = getParamsAsComments(fields)
+
     const name = _.camelCase(
       restrictPathDepth(4, '-')(reverseString(refinedPath))
     )
 
-    fs.appendFileSync('./api.js', `const ${name} = ${fn}\n`)
+    const wholeMethodToPrint = `
+/*
+  ${name}:
+  ${restrictSentenceLength(description || 'No Description', 15)}
+  ---------- Fields -----------
+  ${params.join('\n')}
+*/
+const ${name} = ${fn}
+`
+
+    fs.appendFileSync('./api.js', wholeMethodToPrint)
   } else {
     const [
       refinedPath,
@@ -103,8 +122,31 @@ function enhanceWithAxios(apiMethodObject, path, targetKeys) {
 
     const name = _.camelCase(dashedName)
 
-    fs.appendFileSync('./api.js', `const ${name} = ${fn}\n`)
+    const params = getParamsAsComments(fields)
+
+    const wholeMethodToPrint = `
+/*
+  ${name}:
+  ${restrictSentenceLength(description || 'No Description', 15)}
+  ---------- Fields -----------
+  ${params.join('\n')}
+*/
+const ${name} = ${fn}
+    `
+
+    fs.appendFileSync('./api.js', wholeMethodToPrint)
   }
+}
+
+function getParamsAsComments(fields) {
+  return fields
+    ? fields.map(
+        field =>
+          `${field.name}: ${field.schema._type} in ${field.location} ${
+            field.required ? '*required' : ''
+          }`
+      )
+    : []
 }
 
 function refineApiPath(path, targetKeys, method) {
@@ -161,6 +203,16 @@ function extractor(apiSchema) {
     targetKeys,
     renames: {
       create: ''
+    }
+  })
+}
+
+function restrictSentenceLength(text, maxLength) {
+  return text.split(' ').map((word, index) => {
+    if (index + 1 % maxLength === 0) {
+      return word + '\n'
+    } else {
+      return word
     }
   })
 }
