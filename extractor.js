@@ -10,27 +10,14 @@ function traverseUntilMethodFound(apiSchema, options, initialPath = '') {
       if (targetKeys.includes(key)) {
         if (hasOtherObjectsInsideExcept('fields', apiSchema[key])) {
           process.nextTick(() =>
-            traverseUntilMethodFound(
-              apiSchema[key],
-              options,
-              `${initialPath}-${key}`
-            )
+            traverseUntilMethodFound(apiSchema[key], options, `${initialPath}-${key}`)
           )
         } else {
-          enhanceWithAxios(
-            apiSchema[key],
-            `${initialPath}-${key}`,
-            targetKeys,
-            renames
-          )
+          enhanceWithAxios(apiSchema[key], `${initialPath}-${key}`, targetKeys, renames)
         }
       } else {
         process.nextTick(() =>
-          traverseUntilMethodFound(
-            apiSchema[key],
-            options,
-            `${initialPath}-${key}`
-          )
+          traverseUntilMethodFound(apiSchema[key], options, `${initialPath}-${key}`)
         )
       }
     }
@@ -56,12 +43,7 @@ const removeChar = charsList => string =>
     .join('')
 
 function enhanceWithAxios(apiMethodObject, path, targetKeys) {
-  const {
-    action: method,
-    url: relativeUrl,
-    fields,
-    description
-  } = apiMethodObject
+  const { action: method, url: relativeUrl, fields, description } = apiMethodObject
   const paramRegExp = /\{(\w+)\}/g
   const urlParams = relativeUrl.match(paramRegExp)
 
@@ -83,35 +65,29 @@ function enhanceWithAxios(apiMethodObject, path, targetKeys) {
       arguments ? `${arguments}, ` : ''
     }body) => axios.${method}(\`${absoluteUrlWithTemplates}\`, body, getConfig())`
 
-    const [refinedPath, startsWithCommonVerbs] = refineApiPath(
-      path,
-      targetKeys,
-      method
-    )
+    const [refinedPath, startsWithCommonVerbs] = refineApiPath(path, targetKeys, method)
 
     const params = getParamsAsComments(fields)
 
-    const name = _.camelCase(
-      restrictPathDepth(4, '-')(reverseString(refinedPath))
-    )
+    const name = _.camelCase(restrictPathDepth(4, '-')(reverseString(refinedPath)))
 
     const wholeMethodToPrint = `
 /**
-  ${path}:
-  ${restrictSentenceLength(description || 'No Description', 15)}
-  ---------- Fields -----------
-  ${params.join('\n  ')}
-*/
-const ${name} = ${fn}
+  * ${path}:
+  * ${restrictSentenceLength(description || 'No Description', 15)}
+  * Fields:
+  ${params.map(param => `* ${param}`).join('\n  ')}
+  */
+export const ${name} = ${fn}
 `
 
     fs.appendFileSync('./api.js', wholeMethodToPrint)
   } else {
-    const [
-      refinedPath,
-      startsWithCommonVerbs,
-      refinedPathWithOutVerb
-    ] = refineApiPath(path, targetKeys, method)
+    const [refinedPath, startsWithCommonVerbs, refinedPathWithOutVerb] = refineApiPath(
+      path,
+      targetKeys,
+      method
+    )
     const fn = `(${arguments}) => axios.${method}(\`${absoluteUrlWithTemplates}\`, getConfig())`
 
     const restrictedPath = restrictPathDepth(3, '-')(refinedPathWithOutVerb)
@@ -126,12 +102,12 @@ const ${name} = ${fn}
 
     const wholeMethodToPrint = `
 /**
-  ${path}:
-  ${restrictSentenceLength(description || 'No Description', 15)}
-  ---------- Fields -----------
-  ${params.join('\n  ')}
-*/
-const ${name} = ${fn}
+  * ${path}:
+  * ${restrictSentenceLength(description || 'No Description', 15)}
+  * Fields:
+  ${params.map(param => `* ${param}`).join('\n  ')}
+  */
+export const ${name} = ${fn}
     `
 
     fs.appendFileSync('./api.js', wholeMethodToPrint)
@@ -142,9 +118,9 @@ function getParamsAsComments(fields) {
   return fields
     ? fields.map(
         field =>
-          `@param ${field.name}: {${field.schema._type}} in ${field.location === 'form' ? 'body' : 'url query params'} ${
-            field.required ? '[*required]' : ''
-          } ${
+          `@param ${field.name}: {${field.schema._type}} in ${
+            field.location === 'form' ? 'body' : 'url query params'
+          } ${field.required ? '[*required]' : ''} ${
             field.schema._type === 'enum' ? `-> enum: [${field.schema.enum}]` : ''
           }`
       )
@@ -190,14 +166,7 @@ function hasOtherObjectsInsideExcept(fieldToExclude, object) {
 }
 
 function extractor(apiSchema) {
-  const targetKeys = [
-    'list',
-    'create',
-    'read',
-    'update',
-    'partial_update',
-    'delete'
-  ]
+  const targetKeys = ['list', 'create', 'read', 'update', 'partial_update', 'delete']
 
   const extractionTarget = {}
 
