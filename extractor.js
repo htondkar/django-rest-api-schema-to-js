@@ -76,6 +76,7 @@ function enhanceWithAxios(apiMethodObject, path, targetKeys) {
     const fn = `(${
       arguments ? `${arguments}, ` : ''
     }body) => axios.${method}(\`${absoluteUrlWithTemplates}\`, body, getConfig())`
+
     const [refinedPath, startsWithCommonVerbs] = refineApiPath(
       path,
       targetKeys,

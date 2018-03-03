@@ -17,7 +17,7 @@ const filterKeys = (object, blackList) => {
   return result
 }
 
-const apiSchemaUrl = ''
+const apiSchemaUrl = 'http://api.projectant.aasoo.ir/schema/?format=corejson'
 
 async function loadJsonSchema() {
   console.log('fetching the schema...')
